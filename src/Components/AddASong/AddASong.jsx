@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
 
 
@@ -14,20 +15,32 @@ const AddASong = (props) => {
     const [likes, setLikes] =useState(0);
 
 
-    function handleSubmit(event){
-        event.preventDefault();
-        let newSong ={
+    
+    async function  createASong (){
+          let newSong ={
             title: title,
             artist: artist,
             album: album,
             date: date,
             genre: genre,
-            likes: likes
-
+            likes: likes,
         };
-            props.createASong(newSong)
+        let response = axios.post('http://127.0.0.1:8000/api/songs/',newSong);
+         if(response.status ===201)
+         await getAllSongs();
+            console.log(response.data)
+        };
+
+
+    
+    
+    function handleSubmit(event){    
+        event.preventDefault();
+    
+            props.createASong(createAsong)
         
     }
+
 
 
 
