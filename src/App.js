@@ -14,12 +14,14 @@ function App() {
   }, []);   //[this is the condition]
 
   async function getAllSongs(){
-   let response = await axios.get('http://127.0.0.1:8000/api/songs/');
+   let response = await axios.get ('http://127.0.0.1:8000/api/songs/');
     console.log(response.data);
     setSongs(response.data)
   
   };
 
+//filter function on this level that is passed down to SearchBar component
+//start with filtering title, then once that works filter additional properties
 return (
     <div>
      

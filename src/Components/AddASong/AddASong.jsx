@@ -16,27 +16,7 @@ const AddASong = (props) => {
 
 
     
-    // async function  createASong (newSong){
-    //       let newSong ={
-    //         title: title,
-    //         artist: artist,
-    //         album: album,
-    //         date: date,
-    //         genre: genre,
-    //         likes: likes,
-    //     };
-    //     let response = axios.post('http://127.0.0.1:8000/api/songs/',newSong);
-        //  if(response.status ===201)
-        //  await getAllSongs();
-        //     console.log(response.data)
-        // };
 
-  // async function  createASong (AddASong){
-  //   let response = axios.post('http://127.0.0.1:8000/api/songs/',AddASong);
-  //    if(response.status ===201)
-  //    getAllSongs();
-  //       console.log(response.data)
-  //   };
 
     
     
