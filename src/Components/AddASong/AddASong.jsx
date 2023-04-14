@@ -16,31 +16,51 @@ const AddASong = (props) => {
 
 
     
-    async function  createASong (){
-          let newSong ={
-            title: title,
-            artist: artist,
-            album: album,
-            date: date,
-            genre: genre,
-            likes: likes,
-        };
-        let response = axios.post('http://127.0.0.1:8000/api/songs/',newSong);
-         if(response.status ===201)
-         await getAllSongs();
-            console.log(response.data)
-        };
+    // async function  createASong (newSong){
+    //       let newSong ={
+    //         title: title,
+    //         artist: artist,
+    //         album: album,
+    //         date: date,
+    //         genre: genre,
+    //         likes: likes,
+    //     };
+    //     let response = axios.post('http://127.0.0.1:8000/api/songs/',newSong);
+        //  if(response.status ===201)
+        //  await getAllSongs();
+        //     console.log(response.data)
+        // };
 
+  // async function  createASong (AddASong){
+  //   let response = axios.post('http://127.0.0.1:8000/api/songs/',AddASong);
+  //    if(response.status ===201)
+  //    getAllSongs();
+  //       console.log(response.data)
+  //   };
 
     
     
     function handleSubmit(event){    
         event.preventDefault();
-    
-            props.createASong(createAsong)
+        let newSong ={
+              title: title,
+              artist: artist,
+              album: album,
+              date: date,
+              genre: genre,
+              likes: likes,
+          };
+            createASong(newSong)
         
     }
-
+        
+    async function createASong (newSong){            
+        let response = await axios.post('http://127.0.0.1:8000/api/songs/',newSong);
+        if(response.status ===201){
+        console.log(response.data)
+        await props.getAllSongs();
+        }
+    };
 
 
 
@@ -52,7 +72,7 @@ const AddASong = (props) => {
             <p>Album: <input type='text'value={album} onChange={(event) => setAlbum(event.target.value)} /></p>
             <p>Release Date: <input type='date' value={date} onChange={(event) => setDate(event.target.value)}/></p>
             <p>Genre: <input type='text' value={genre}onChange={(event) => setGenre(event.target.value)}/></p>
-            <p>Likes: <input type='number' value={likes}onChange={(event) => setLikes(parseFloat(event.target.value))}/></p>
+            <p>Likes: <input type='number' value={likes}onChange={(event) => setLikes(parseInt(event.target.value))}/></p>
             <button type='submit'>Add New Song</button>
             
 

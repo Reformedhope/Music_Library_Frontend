@@ -6,29 +6,12 @@ import AddASong from './Components/AddASong/AddASong';
 
 function App() {
 
-  const[songs, setSongs] =useState([]);
+  const[songs, setSongs] = useState([]);
 
-
-  // function addNewSong(addition){
-  //   let newAddition = [ ...songs, addition]
-    
-  //   setSongs(newAddition);
-  
-  
-
-  useEffect(() => {
+  useEffect(() => {   //running when a condition is met, with empty brackets only runs when page initially loads
     getAllSongs();
   
-  }, []);
-
-  // async function  createASong (AddASong){
-  //   let response = axios.post('http://127.0.0.1:8000/api/songs/',AddASong);
-  //    if(response.status ===201)
-  //    getAllSongs();
-  //       console.log(response.data)
-  //   };
-
-
+  }, []);   //[this is the condition]
 
   async function getAllSongs(){
    let response = await axios.get('http://127.0.0.1:8000/api/songs/');
@@ -40,10 +23,10 @@ function App() {
 return (
     <div>
      
-      <AddASong createASong/>
+      <AddASong getAllSongs={getAllSongs} />
       <MusicTable musicEntered = {songs}/>
 
-      <button onClick={()=> getAllSongs }>Get All Songs</button>
+      <button onClick={()=> getAllSongs()}>Get All Songs</button>
     </div>
   );
 
