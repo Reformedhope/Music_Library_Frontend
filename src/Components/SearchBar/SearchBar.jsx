@@ -13,6 +13,9 @@ const SearchBar = (props) => {
     
     function handleSongSubmit(event){    
         event.preventDefault();
+        
+        props.searchInput(search)
+    
     };
       
             
