@@ -24,7 +24,7 @@ function App() {
 
     async function searchBarSearch(searchInput){
     // let response = await axios.get ('http://127.0.0.1:8000/api/songs/');
-    songs.filter((song) => song.title.toLowerCase().includes(searchInput))
+    let response = songs.filter((song) => song.title.toLowerCase().includes(searchInput))
    console.log(response.data)
    setSongs(response.data)
 };
