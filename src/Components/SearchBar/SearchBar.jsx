@@ -9,36 +9,31 @@ import App from '../../App';
 
 
 const SearchBar = (props) => {
-    const [searchTitle, setSearchTitle] =useState([]);
+    const [search, setSearch] =useState([]);
     
-    return ( 
-        function handleSongSubmit(event){    
-            event.preventDefault();
+    function handleSongSubmit(event){    
+        event.preventDefault();
+    };
+      
+            
+            
+            
+        return ( 
+        <div>
+        <form onSubmit={handleSongSubmit}>
+            <p>
+                <input type='text' placeholder="Search a song" value={search} onChange={(event) => setSearch(event.target.value)}/>
+            </p>
+        </form>
+            <div>
+                <p> {search.title}</p>
+            </div>
+        </div>
         
-        
-            
-            
-            
-            {props.searchBar.map((searchbarSearch)=>{
-            return ( 
-            <><form onSubmit={handleSongSubmit}>
-
-                    <p><input type='text' placeholder="Search a song" value={searchTitle} onChange={(event) => setSearchTitle(event.target.value)} /></p>
-                </form>
-                    <div>
-                        <p> {searchbarSearch.searchTitle}</p>
-                    </div></>
+        );
     
-    
-            );
-            })}
-            
-        }
-
-     );
-}
- 
-export default SearchBar;
+};
+ export default SearchBar;
 
 
 
