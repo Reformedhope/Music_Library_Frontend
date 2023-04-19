@@ -1,4 +1,5 @@
 import './MusicTable.css'
+import App from '../../App';
 
 const MusicTable = (props) => {
     return ( 
@@ -18,6 +19,7 @@ const MusicTable = (props) => {
     </thead>
     <tbody>
         {props.musicEntered.map((song)=>{
+            
         return(
             <tr>
             <td>{song.title}</td>

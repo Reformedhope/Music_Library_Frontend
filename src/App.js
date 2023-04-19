@@ -23,24 +23,32 @@ function App() {
   };
 
     async function searchBarSearch(searchInput){
+      console.log("searchinput: ", searchInput)
     // let response = await axios.get ('http://127.0.0.1:8000/api/songs/');
     let response = songs.filter((song => song.title.toLowerCase().includes(searchInput)))
-   console.log(response.data)
-   setSongs(response.data)
+   console.log(response.songs)
+  //  setSongs(response.data)
 };
 
 //filter function on this level that is passed down to SearchBar component
 //start with filtering title, then once that works filter additional properties
 return (
     <div>
-
-      <SearchBar searchInputs ={searchBarSearch}/>
       
-      <AddASong getAllSongs={getAllSongs} />
-      
-      <MusicTable musicEntered = {songs}/>
+    <SearchBar searchInput={searchBarSearch}/> 
+    <AddASong getAllSongs={getAllSongs} />
 
-      <button onClick={()=> getAllSongs()}>Get All Songs</button>
+    <button onClick={()=> getAllSongs()}>Get All Songs</button>
+    <MusicTable musicEntered={songs}/>
+       
+    
+     
+  
+      
+      
+      
+
+     
     </div>
   );
 

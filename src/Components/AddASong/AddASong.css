@@ -4,11 +4,12 @@
     border-color: rgb(231, 216, 132);
     border-radius: 120px;
     border-width: 0.2em;
-    margin: 2em;
+    margin: 5em;
     padding: 2em;
     background-color: beige;
     width: 22%;
-    margin:left;
+    margin:auto;
+    
     
 }
 .font{

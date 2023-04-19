@@ -13,7 +13,6 @@ const SearchBar = (props) => {
     
     function handleSongSubmit(event){    
         event.preventDefault();
-        
         props.searchInput(search)
     
     };
@@ -21,19 +20,19 @@ const SearchBar = (props) => {
             
             
             
-        return ( 
+    return ( 
         <div>
-        <form onSubmit={handleSongSubmit}>
-            <p>
-                <input type='text' placeholder="Search a song" value={search} onChange={(event) => setSearch(event.target.value)}/>
-            </p>
-        </form>
-            <div>
-                <p> {search.title}</p>
-            </div>
+            <form onSubmit={handleSongSubmit}>
+                <input type='text'
+                    placeholder="Search a song" 
+                    value={search}
+                    onChange={(event) => setSearch(event.target.value)}
+                /> 
+                <button type='submit'>Search Songs</button> 
+            </form>
         </div>
         
-        );
+    );
     
 };
  export default SearchBar;
