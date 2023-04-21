@@ -11,7 +11,7 @@ function App() {
   
 
   useEffect(() => {   //running when a condition is met, with empty brackets only runs when page initially loads
-    // getAllSongs();
+    getAllSongs();
   
   }, []);   //[this is the condition]
 
@@ -23,11 +23,16 @@ function App() {
   };
 
     async function searchBarSearch(searchInput){
-      console.log("searchinput: ", searchInput)
-    // let response = await axios.get ('http://127.0.0.1:8000/api/songs/');
-    let response = songs.filter((song => song.title.toLowerCase().includes(searchInput)))
-   console.log(response.songs)
-  //  setSongs(response.data)
+      
+     let response = songs.filter(song => song.title.includes(searchInput)
+      || song.artist.includes(searchInput) || song.album.includes(searchInput)
+      || song.genre.includes(searchInput) || song.likes.includes(searchInput) 
+      || song.release_date.includes(searchInput));
+
+      console.log("Filtered songs:", response);
+      
+  //  return( songs.title)
+   setSongs(response)
 };
 
 //filter function on this level that is passed down to SearchBar component
@@ -41,7 +46,7 @@ return (
     <button onClick={()=> getAllSongs()}>Get All Songs</button>
     <MusicTable musicEntered={songs}/>
        
-    
+   
      
   
       
@@ -58,11 +63,11 @@ return (
 export default App;
 
 
-//This is how the CSS Styling will be for this page 
-{/* <div className='container-fluid'>
-<div className='row'>
-<div className='col-md-6'>
+// // //This is how the CSS Styling will be for this page 
+// // {/* <div className='container-fluid'>
+// // <div className='row'>
+// // <div className='col-md-6'>
 
-</div>
-</div>
-</div> */}
+// </div>
+// </div>
+// </div> */}

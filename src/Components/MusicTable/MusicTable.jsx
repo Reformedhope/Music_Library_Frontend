@@ -19,6 +19,7 @@ const MusicTable = (props) => {
     </thead>
     <tbody>
         {props.musicEntered.map((song)=>{
+        // {props.searchInput(song)}
             
         return(
             <tr>
