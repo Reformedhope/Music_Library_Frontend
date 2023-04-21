@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import App from '../../App';
+import './SearchBar.css'
 
 
 
@@ -22,14 +22,16 @@ const SearchBar = (props) => {
             
     return ( 
         <div>
-            <form onSubmit={handleSongSubmit}>
-                <input type='text'
-                    placeholder="Search a song" 
-                    value={search}
-                    onChange={(event) => setSearch(event.target.value)}
-                /> 
-                <button type='submit'>Search Songs</button> 
-            </form>
+            <div className='style'>
+                <form onSubmit={handleSongSubmit}>
+                    <input type='text'
+                        placeholder="Search a song" 
+                        value={search}
+                        onChange={(event) => setSearch(event.target.value)}
+                    /> 
+                    <button type='submit'>Search Songs</button> 
+                </form>
+            </div>
         </div>
         
     );

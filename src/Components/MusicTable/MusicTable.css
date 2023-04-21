@@ -1,16 +1,4 @@
-.border{
-    border: 1px;
-    border-style:outset;
-    border-color: rgb(231, 216, 132);
-    border-radius: 120px;
-    border-width: 0.2em;
-    margin: 2em;
-    padding: 2em;
-    background-color: beige;
-    width: 22%;
-    margin:left;
-    
-}
+
 .fonts{
     font:bold;
     font-family:fantasy;
@@ -19,4 +7,15 @@
     margin: auto;
     
 }
-
+.form-border1{
+    border: 1px;
+    border-style:groove;
+    border-color: rgb(3, 255, 70);
+    border-radius: 20px;
+    border-width: 0.5em;
+    margin: 2em;
+    padding: 2em;
+    background-color: rgb(245, 217, 176);
+    width: auto;
+    margin:right;
+}
